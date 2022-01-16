@@ -39,7 +39,8 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="https://github.com/Ntozakhe/palindrome-pract" id="effect">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/Ntozakhe/palindrome-pract"
+                            id="effect">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="#" id="effect">About</a>
@@ -57,16 +58,51 @@
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-                            function helloWorld(){
-                                alert("Hello World");
-                            }
+                            function getValue(){
+                                document.getElementById("alertID").classList.add("invisible"); // ensres that the alert remains invisible when the function starts running
+                                let userString = document.getElementById("userInput").value;
+                                userString = userString.replace(/[^a-zA-Z ]/g, "").trim().toLowerCase();
+                                let revString = reverseString(userString); 
+                                
+                                displayString(revString,userString);
+                                }
+                                function reverseString(userString){
+                                    let revString = [];
+                                    //we'll reverse a string using a for loop.
+                                    for(let i = userString.length - 1; i >= 0; i--){
+                                        revString += userString[i];
+                                        
+                                    }
+                                    return revString;  
+                                    
+                                    }
+                                    function displayString(stringRev,stringUser){
+                                        if(stringRev === stringUser){
+                                            document.getElementById("message").innerHTML = `Your string reversed is: <strong>${stringRev}</strong>`;
+                                            document.getElementById("alertID").classList.remove("invisible");
+                                        }else{
+                                            document.getElementById("message").innerHTML = `${stringRev} is not a <strong>PALINDROME</strong>`;
+                                            document.getElementById("alertID").classList.remove("invisible");
+                                        }
+                                    }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is structured in one title:</p>
-                    <h5>Hello World</h5>
-                    <p>helloWorld is a Function that displays a message of "Hello World"</p>
+                    <div class="img-fluid">
+                        <img src="/img/pal.png" alt="app logo">
+                    </div>
+                    <h5>getValue&#40;&#41;</h5>
+                    <p>is a function that collects data from the user input. Then takes the user input and removes
+                        symbols, space on the sides and turns it all to lower case. Once that is done, the function
+                        continues to call <strong>reverseString&#40;&#41;</strong> aswell as
+                        <strong>displayString&#40;&#41;</strong></p>
+
+                    <h5>reverseString&#40;&#41;</h5>
+                    <p>is resposible for reversing the user input and putting it into an array, then returning it back to the <b>getValue&#40;&#41;</b> function.</p>
+
+                    <h5>displayString&#40;&#41;</h5>
+                    <p>is reponsible for outputting the reversed user input to the user. Before it displays, the function checks whether the user input is a <strong>PALINDROME</strong> or <strike>NOT</strike>. Different results will display depending on the condition.</p>
                 </div>
             </div>
         </div>

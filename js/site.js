@@ -1,11 +1,21 @@
+
+
 function getValue(){
 document.getElementById("alertID").classList.add("invisible"); // ensres that the alert remains invisible when the function starts running
-let userString = document.getElementById("userInput").value;
-userString = userString.replace(/[^a-zA-Z ]/g, "").trim().toLowerCase();
-let revString = reverseString(userString); 
+document.getElementById("alertID2").classList.add("invisible");
 
-displayString(revString,userString);
+let userString = document.getElementById("userInput").value;
+if(userString.length === 0){
+    alert("Please enter a STRING");
+}else{
+    userString = userString.replace(/[^a-zA-Z ]/g, "").trim().toLowerCase();
+    let revString = reverseString(userString); 
+    
+    displayString(revString,userString);
 }
+
+}
+
 function reverseString(userString){
     let revString = [];
     //we'll reverse a string using a for loop.
@@ -21,7 +31,7 @@ function reverseString(userString){
             document.getElementById("message").innerHTML = `Your string reversed is: <strong>${stringRev}</strong>`;
             document.getElementById("alertID").classList.remove("invisible");
         }else{
-            document.getElementById("message").innerHTML = `${stringRev} is not a <strong>PALINDROME</strong>`;
-            document.getElementById("alertID").classList.remove("invisible");
+            document.getElementById("message2").innerHTML = `${stringRev} is not a <strong>PALINDROME</strong>`;
+            document.getElementById("alertID2").classList.remove("invisible");
         }
     }
